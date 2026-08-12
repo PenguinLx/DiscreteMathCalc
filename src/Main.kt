@@ -13,6 +13,7 @@ fun main() {
 //    println(result)
     println("Choose the operation:\n1 - Combinatorics Calculator\n2 - Arithmetic Progression")
     val option: Int = readln().toInt()
+    var result:Int = 0
 
     when (option) {
         1 -> {
@@ -23,10 +24,12 @@ fun main() {
             println("What to calculate: \n1 - Combinatorics \n2 - Arrangement ")
             val op = readln().toInt()
             if(op == 1){
-                println(combinatoricsCalculator.calculateCombination(n, k))
+                result = combinatoricsCalculator.calculateCombination(n, k)
+                //println(combinatoricsCalculator.calculateCombination(n, k))
             }
             else if(op == 2){
-                println(combinatoricsCalculator.calculateArrangement(n, k))
+                result = combinatoricsCalculator.calculateArrangement(n, k)
+                //println(combinatoricsCalculator.calculateArrangement(n, k))
             }
 
         }
@@ -37,20 +40,28 @@ fun main() {
             if (!arithmeticProgression.isAP(termList)) exitProcess(1)
             println("What do you want to do?\n 1 - Find D\n2 - find Nth term\n3 - Sum of the first N terms(KNOWING THE FIRST AND LAST TERMS) ")
                 val op = readln().toInt()
+                var n:Int = 0
+                if(op !=1){
+                    println("Type n: ")
+                    n = readln().toInt()
+                }
             if(op == 1) {
-                println(arithmeticProgression.findCommonDifference(termList))
+                result = arithmeticProgression.findCommonDifference(termList)
+                //println(arithmeticProgression.findCommonDifference(termList))
             }
             else if(op == 2) {
-                println("Type the n: ")
-                val n = readln().toInt()
-                println(arithmeticProgression.findNTerm(termList, n))
+                //n = readln().toInt()
+                result = arithmeticProgression.findNTerm(termList, n)
             }
             else if(op == 3){
-                println("Type the n: ")
-                val n = readln().toInt()
-                println(arithmeticProgression.sumNFiniteTermsFirstAndLastTermKnown(termList, n))
+                //println("Type n: ")
+                 //n = readln().toInt()
+                result = arithmeticProgression.sumNFiniteTermsFirstAndLastTermKnown(termList, n)
+                //println(arithmeticProgression.sumNFiniteTermsFirstAndLastTermKnown(termList, n))
             }
         }
         else -> println("Value is unknown") // Acts like 'default:' in Java
     }
+    print("Answer: $result")
+
 }

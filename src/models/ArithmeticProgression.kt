@@ -16,9 +16,9 @@ package models
    }
      fun isAP(termList: List<Int>):Boolean{
          val resultList = ArrayList<Int>()
+         val expectedD = termList[1] - termList[0]
          for (i in termList.size - 1 downTo 1) {
             //d = difference
-             val expectedD = termList[1] - termList[0]
              val result = termList[i] - termList[i - 1]
              if (result != expectedD){
 //                 println("Not an AP!")
